@@ -1,0 +1,13 @@
+apiVersion: keda.sh/v1
+kind: ScaledObject
+metadata:
+  name: my-deployment-scaledobject
+  namespace: event-driven
+spec:
+  scaleTargetRef:
+    name: my-deployment
+  triggers:
+  - type: cpu
+    metadata:
+      type: "Utilization"
+      value: "50"
